@@ -1,0 +1,511 @@
+$color1: rgb(251, 252, 233);
+$color2: rgb(106, 86, 230);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+a{
+    color: $color1;
+    list-style: none;
+    text-decoration: none;
+}
+
+header{
+    font-family: 'Poppins';
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    color: $color1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a{
+        font-size: 1.8rem;
+        font-weight: bold;
+        padding: 1em;
+        margin-right: 2em;
+    
+        text-shadow: 3px 2px 3px black;
+    
+        display: flex;
+        align-items:center;
+        justify-content: left;
+
+        img{
+            width: 50px;
+            height: auto;
+        }
+    }
+
+    nav{
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            list-style-type: none;
+
+            li a{
+                text-transform: lowercase;
+                font-weight: bold;
+                font-size: 1.4rem;
+                text-shadow: 3px 2px 3px black;
+            }
+        }
+    }
+
+    a:hover,
+    li a:hover{
+    color: $color2;
+    transition: color 0.3s;
+    }
+}  
+
+
+
+
+.frutos-secos{
+    background-image: url(./img/368.jpg);
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    div{
+        height: auto;
+        width: 100%;
+        color: $color1;
+        padding: 0.8em;
+        font-family: 'Poppins';
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+    
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.5);
+
+        ul i{
+            font-size: 2rem;
+            padding: 5px;
+            transition: all 0.3s;
+        }
+
+        p{
+            color: $color1;
+            font-size: 1rem;
+            margin-bottom: 0.5em;
+        }
+
+        a{
+            color: $color1;
+            text-decoration: none;
+            background-color: $color2;
+            padding: 0.4em;
+            border-radius: 5px;
+            border:none;
+            font-size: 1rem;
+            text-align: center;
+            height: 40px;
+            transition: all 1s;
+        }
+
+        a:hover{
+            height: 60px;
+            transition: all 0.5s;
+        }
+        ul i:hover{
+            font-size: 3rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+    }
+}
+
+.productos-3{
+    padding: 0.5em;
+    margin-bottom: 0;
+    background-image: url(./img/todos-productos.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 20em;
+
+    font-size: 2rem;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 3px 2px 3px black;
+
+    .flex-productos{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .nueces{
+            color: $color1;
+            text-transform: none;
+            width: 280px;
+            height: auto;
+            display: inline-block;
+            margin: 1.8em;
+            margin-top: 3em;
+
+            h3{
+                font-size: 1.8rem;
+            }
+            img{
+                border-radius: 50%;
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                height: 300px;
+            
+                transition: all 0.7s;
+            }
+
+            p{
+                font-size: 0.8rem;
+                padding: 10px;
+                vertical-align: middle;
+            }
+
+            img:hover{
+                transform: scale(1.05);
+                transition: all 0.6s;
+                box-shadow: 5px 2px 7px black;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+.productos{
+    padding: 0.5em;
+    margin-bottom: 0;
+    background-image: url(./img/todos-productos.jpg);
+    height: 160vh;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    font-size: 2rem;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 3px 2px 3px black;
+}
+
+.prod{
+    color: $color1;   
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+
+.nueces{
+    color: $color1;
+    text-transform: none;
+    width: 280px;
+    height: auto;
+    display: inline-block;
+    margin: 1.8em;
+    margin-top: 3em;
+}
+
+.nueces h3{
+    font-size: 1.8rem;
+}
+
+.nueces img{
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 300px;
+
+    transition: all 0.7s;
+}
+.nueces img:hover{
+    transform: scale(1.05);
+    transition: all 0.6s;
+    box-shadow: 5px 2px 7px black;
+    cursor: pointer;
+}
+
+.nueces p{
+    font-size: 0.8rem;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+
+.nosotros{
+    display: inline-block;
+    background-image: url(./img/1366_2000.jpeg);
+    height: 130vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.nosotros h2{
+    font-family: 'Poppins';
+    text-transform: capitalize;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: $color1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.6em;
+    margin-top: 4rem;
+    text-shadow: 3px 2px 3px black;
+
+}
+.cuadrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2em;
+    margin-bottom: 15px;
+}
+.cuadrito img{
+    width: 500px;
+    border-radius: 10px;
+    transition: all 0.6s;
+}
+.cuadrito img:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.6s;
+    box-shadow: 4px 2px 7px black;
+}
+.cuadrito p{
+    font-family: 'Poppins';
+    color: $color1;
+    font-size: 1rem;
+    display: flex;
+    width: 40%;
+    padding: 2em;
+    margin-top: 1em;
+    text-shadow: 3px 2px 3px black;
+}
+
+.videito-fs{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.videito-fs h3{
+    font-family: 'Poppins';
+    color: $color1;
+    text-transform: capitalize;
+    padding: 10px;
+    text-shadow: 3px 2px 3px black;
+}
+
+.sec-where{
+    display: inline-block;
+    background-image: url(./img/Bol-frutos-secos_1609049356_143524403_667x375.jpg);
+    height: 110vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.flex-where{
+    display: flex;
+    align-items: center;
+    margin-top: 6em;
+    margin-bottom: 8em;
+}
+
+.where{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3em;
+}
+
+
+.where iframe{
+    height: 50em;
+    width: 40em;
+    padding: 20px;
+}
+
+.donde h3,
+.where h3{
+    color: $color1;
+    font-family: 'Poppins';
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    padding: 20px;
+    text-shadow: 3px 2px 3px black;
+}
+
+.donde{
+    display: flex;
+    flex-direction: column;
+    color: $color1;
+    margin-left: 3em;
+}
+
+.donde p{
+    font-family: 'Poppins';
+    width: 90%;
+    padding: 20px;
+    text-shadow: 3px 2px 3px black;
+}
+
+.contacto-form{
+    background-image: url(./img/Frutos-Secos-El-Rincón.jpg);
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Poppins';
+}
+.formulario{
+    text-align: center;
+    display: inline-block;
+    width: 500px;
+    border-radius: 20px;  
+    padding: 25px;
+    background-color: #fbfbfb; 
+    border: none;
+    margin-top: 20em;
+    margin-bottom: 20em;
+    margin-left: 5em;
+}
+
+textarea{
+    background-color: #fbfbfb; 
+    width: 405px; 
+    height: 150px; 
+    border-radius: 10px;  
+    border-style: solid; 
+    border-width: 1px; 
+    border-color: rgb(50, 41, 108);
+    margin-top: 10px;  
+    padding-left: 10px;
+    margin-bottom: 20px; 
+    padding-top: 15px; 
+}
+
+label{
+    display: block; 
+    float: center;  
+}
+
+button{
+    height: 45px; 
+    padding-left: 5px;
+    padding-right: 5px;   
+    margin-bottom: 20px; 
+    margin-top: 10px;   
+    text-transform: uppercase;
+    background-color: rgb(50, 41, 108);
+    border-style: none; 
+    border-radius: 10px;  
+    width: 420px;   
+    cursor: pointer;
+}
+button p{
+    color: #fff; 
+}
+
+.pasos-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.pasos{
+    color: white;
+    margin-left: 12em;
+    text-shadow: 3px 2px 3px black;
+}
+
+.listita{
+    margin-bottom: 20px;
+    list-style-type:upper-roman;
+}
+
+.listita li{
+    margin-bottom: 3em;
+    width: 80%;
+}
+
+footer{
+    height: auto;
+    width: 100%;
+    background-color: $color1;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 70px;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+    p{
+        font-family: 'Poppins';
+        font-size: 0.8em;
+        padding: 5px;
+        display: inline-block;
+        margin-right: 20px;
+    }
+    i{
+        font-size: 2rem;
+        color: rgb(50, 41, 108);
+        letter-spacing: 15px;
+        vertical-align: middle;
+        transition: all 0.2s;
+    }
+    i:hover{
+    color: $color2;
+    font-size: 3rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    }
+}
+
+.subir{
+    height: 45px;
+    width: 45px;
+    background-color: $color1;
+    border: none;
+    color: rgb(50, 41, 108);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px #333;
+}
