@@ -1,10 +1,18 @@
-$color1: rgb(251, 252, 233);
-$color2: rgb(106, 86, 230);
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+$colors: (
+    color1: rgb(251, 252, 233),
+    color2:  rgb(106, 86, 230)
+);
+
+@mixin flex-center{
+	display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 html{
@@ -12,7 +20,7 @@ html{
 }
 
 a{
-    color: $color1;
+    color: map-get($map: $colors, $key:color1);
     list-style: none;
     text-decoration: none;
 }
@@ -24,7 +32,7 @@ header{
     top: 0;
     right: 0;
     left: 0;
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,9 +45,7 @@ header{
     
         text-shadow: 3px 2px 3px black;
     
-        display: flex;
-        align-items:center;
-        justify-content: left;
+        @include flex-center;
 
         img{
             width: 50px;
@@ -49,9 +55,7 @@ header{
 
     nav{
         ul{
-            display: flex;
-            align-items: center;
-            justify-content: right;
+            @include flex-center;
             list-style-type: none;
 
             li a{
@@ -65,13 +69,10 @@ header{
 
     a:hover,
     li a:hover{
-    color: $color2;
+    color: map-get($map: $colors, $key:color2);
     transition: color 0.3s;
     }
 }  
-
-
-
 
 .frutos-secos{
     background-image: url(./img/368.jpg);
@@ -84,7 +85,7 @@ header{
     div{
         height: auto;
         width: 100%;
-        color: $color1;
+        color:  map-get($map: $colors, $key:color1);
         padding: 0.8em;
         font-family: 'Poppins';
         text-align: center;
@@ -102,15 +103,15 @@ header{
         }
 
         p{
-            color: $color1;
+            color:  map-get($map: $colors, $key:color1);
             font-size: 1rem;
             margin-bottom: 0.5em;
         }
 
         a{
-            color: $color1;
+            color:  map-get($map: $colors, $key:color1);
             text-decoration: none;
-            background-color: $color2;
+            background-color: map-get($map: $colors, $key:color2);
             padding: 0.4em;
             border-radius: 5px;
             border:none;
@@ -132,14 +133,14 @@ header{
     }
 }
 
-.productos-3{
+.productos-1{
     padding: 0.5em;
     margin-bottom: 0;
     background-image: url(./img/todos-productos.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 20em;
+    height: 100%;
 
     font-size: 2rem;
     font-family: 'Poppins';
@@ -148,16 +149,12 @@ header{
     text-shadow: 3px 2px 3px black;
 
     .flex-productos{
-        display: flex;
+        @include flex-center;
         flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
 
         .nueces{
-            color: $color1;
+            color:  map-get($map: $colors, $key:color1);
             text-transform: none;
-            width: 280px;
-            height: auto;
             display: inline-block;
             margin: 1.8em;
             margin-top: 3em;
@@ -169,8 +166,6 @@ header{
                 border-radius: 50%;
                 padding: 10px;
                 text-align: center;
-                width: 100%;
-                height: 300px;
             
                 transition: all 0.7s;
             }
@@ -191,12 +186,11 @@ header{
     }
 }
 
-
 .productos{
     padding: 0.5em;
     margin-bottom: 0;
     background-image: url(./img/todos-productos.jpg);
-    height: 160vh;
+    height: 100%;
     background-position: bottom;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -211,14 +205,13 @@ header{
 }
 
 .prod{
-    color: $color1;   
+    color:  map-get($map: $colors, $key:color1);   
     font-size: 2.5rem;
     font-weight: bold;
 }
 
-
 .nueces{
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     text-transform: none;
     width: 280px;
     height: auto;
@@ -253,7 +246,6 @@ header{
     vertical-align: middle;
 }
 
-
 .nosotros{
     display: inline-block;
     background-image: url(./img/1366_2000.jpeg);
@@ -269,10 +261,9 @@ header{
     text-transform: capitalize;
     font-size: 2.6rem;
     font-weight: bold;
-    color: $color1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color:  map-get($map: $colors, $key:color1);
+
+    @include flex-center;
     flex-wrap: wrap;
     padding: 0.6em;
     margin-top: 4rem;
@@ -280,9 +271,7 @@ header{
 
 }
 .cuadrito{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
     flex-wrap: wrap;
     padding: 2em;
     margin-bottom: 15px;
@@ -300,7 +289,7 @@ header{
 }
 .cuadrito p{
     font-family: 'Poppins';
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     font-size: 1rem;
     display: flex;
     width: 40%;
@@ -315,7 +304,7 @@ header{
 }
 .videito-fs h3{
     font-family: 'Poppins';
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     text-transform: capitalize;
     padding: 10px;
     text-shadow: 3px 2px 3px black;
@@ -338,10 +327,8 @@ header{
 }
 
 .where{
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin-left: 3em;
 }
 
@@ -354,7 +341,7 @@ header{
 
 .donde h3,
 .where h3{
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     font-family: 'Poppins';
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -365,7 +352,7 @@ header{
 .donde{
     display: flex;
     flex-direction: column;
-    color: $color1;
+    color:  map-get($map: $colors, $key:color1);
     margin-left: 3em;
 }
 
@@ -461,7 +448,7 @@ button p{
 footer{
     height: auto;
     width: 100%;
-    background-color: $color1;
+    background-color:  map-get($map: $colors, $key:color1);
     text-align: center;
     padding: 10px;
     display: flex;
@@ -488,7 +475,7 @@ footer{
         transition: all 0.2s;
     }
     i:hover{
-    color: $color2;
+    color: map-get($map: $colors, $key:color2);
     font-size: 3rem;
     transition: all 0.2s;
     cursor: pointer;
@@ -498,7 +485,7 @@ footer{
 .subir{
     height: 45px;
     width: 45px;
-    background-color: $color1;
+    background-color:  map-get($map: $colors, $key:color1);
     border: none;
     color: rgb(50, 41, 108);
     position: fixed;
