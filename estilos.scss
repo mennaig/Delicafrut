@@ -6,7 +6,8 @@
 
 $colors: (
     color1: rgb(251, 252, 233),
-    color2:  rgb(106, 86, 230)
+    color2:  rgb(106, 86, 230),
+    color3: rgb(50, 41, 108)
 );
 
 @mixin flex-center{
@@ -27,7 +28,6 @@ a{
 
 header{
     font-family: 'Poppins';
-    padding: 0.5em;
     position: absolute;
     top: 0;
     right: 0;
@@ -36,17 +36,21 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    z-index: 999;
 
-    a{
-        font-size: 1.8rem;
-        font-weight: bold;
-        padding: 1em;
+    svg{
+        width: 2.3em;
         margin-right: 2em;
-    
-        text-shadow: 3px 2px 3px black;
-    
-        @include flex-center;
+        cursor: pointer;
+    }
 
+    .delica{
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 3px 2px 3px black;
+        @include flex-center;
+        transition: all 0.15s;
         img{
             width: 50px;
             height: auto;
@@ -54,23 +58,46 @@ header{
     }
 
     nav{
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: map-get($map: $colors, $key: color2);
+        height: 100vh;
+        width: 40%;
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform .5s ease-in-out;
         ul{
-            @include flex-center;
             list-style-type: none;
+            display: block;
+            margin-top: 10em;
 
-            li a{
-                text-transform: lowercase;
-                font-weight: bold;
-                font-size: 1.4rem;
-                text-shadow: 3px 2px 3px black;
+            li{
+                @include flex-center;
+                padding: 20px;
+                a{
+                    color: map-get($map: $colors, $key: color1);
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                    padding-top: 0.75em 2em;
+                }
             }
+        }
+        .close{
+            float: right;
+            margin: 1em;
+            width: 2.5em;
         }
     }
 
-    a:hover,
     li a:hover{
-    color: map-get($map: $colors, $key:color2);
-    transition: color 0.3s;
+        color: map-get($map: $colors, $key:color3);
+        transition: color 0.3s;
+        }
+    .delica:hover{
+        color: map-get($map: $colors, $key:color2);
+        transition: color 0.3s;
     }
 }  
 
@@ -78,7 +105,7 @@ header{
     background-image: url(./img/368.jpg);
     height: 100vh;
     background-attachment: fixed;
-    background-position: center;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -104,7 +131,7 @@ header{
 
         p{
             color:  map-get($map: $colors, $key:color1);
-            font-size: 1rem;
+            font-size: 0.85rem;
             margin-bottom: 0.5em;
         }
 
@@ -123,71 +150,19 @@ header{
 
         a:hover{
             height: 60px;
-            transition: all 0.5s;
+            transition: all 0.3s;
         }
         ul i:hover{
             font-size: 3rem;
             transition: all 0.3s;
+            color: map-get($map: $colors, $key:color2);
+
             cursor: pointer;
         }
     }
 }
 
-.productos-1{
-    padding: 0.5em;
-    margin-bottom: 0;
-    background-image: url(./img/todos-productos.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-
-    font-size: 2rem;
-    font-family: 'Poppins';
-    text-transform: uppercase;
-    text-align: center;
-    text-shadow: 3px 2px 3px black;
-
-    .flex-productos{
-        @include flex-center;
-        flex-wrap: wrap;
-
-        .nueces{
-            color:  map-get($map: $colors, $key:color1);
-            text-transform: none;
-            display: inline-block;
-            margin: 1.8em;
-            margin-top: 3em;
-
-            h3{
-                font-size: 1.8rem;
-            }
-            img{
-                border-radius: 50%;
-                padding: 10px;
-                text-align: center;
-            
-                transition: all 0.7s;
-            }
-
-            p{
-                font-size: 0.8rem;
-                padding: 10px;
-                vertical-align: middle;
-            }
-
-            img:hover{
-                transform: scale(1.05);
-                transition: all 0.6s;
-                box-shadow: 5px 2px 7px black;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
 .productos{
-    padding: 0.5em;
     margin-bottom: 0;
     background-image: url(./img/todos-productos.jpg);
     height: 100%;
@@ -196,253 +171,256 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
 
-
     font-size: 2rem;
     font-family: 'Poppins';
     text-transform: uppercase;
     text-align: center;
     text-shadow: 3px 2px 3px black;
-}
 
-.prod{
-    color:  map-get($map: $colors, $key:color1);   
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.nueces{
-    color:  map-get($map: $colors, $key:color1);
-    text-transform: none;
-    width: 280px;
-    height: auto;
-    display: inline-block;
-    margin: 1.8em;
-    margin-top: 3em;
-}
-
-.nueces h3{
-    font-size: 1.8rem;
-}
-
-.nueces img{
-    border-radius: 50%;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    height: 300px;
-
-    transition: all 0.7s;
-}
-.nueces img:hover{
-    transform: scale(1.05);
-    transition: all 0.6s;
-    box-shadow: 5px 2px 7px black;
-    cursor: pointer;
-}
-
-.nueces p{
-    font-size: 0.8rem;
-    padding: 10px;
-    vertical-align: middle;
+    .nueces{
+        color:  map-get($map: $colors, $key:color1);
+        text-transform: none;
+        width: 280px;
+        height: auto;
+        display: inline-block;
+        margin: 1.8em;
+        margin-top: 3em;
+    
+        h3{
+            font-size: 1.5rem;
+        }
+    
+        img{
+            border-radius: 50%;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            height: 300px;
+        
+            transition: all 0.7s;
+        }
+    
+        img:hover{
+            transform: scale(1.05);
+            transition: all 0.6s;
+            box-shadow: 5px 2px 7px black;
+            cursor: pointer;
+        }
+    
+        p{
+            font-size: 0.8rem;
+            vertical-align: middle;
+        }
+    }
 }
 
 .nosotros{
-    display: inline-block;
     background-image: url(./img/1366_2000.jpeg);
-    height: 130vh;
+    height: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-}
 
+    .cuadrito{
+        @include flex-center;
+        flex-wrap: wrap;
+        padding-top: 7.5em;
+        padding-bottom: 3em;
 
-.nosotros h2{
-    font-family: 'Poppins';
-    text-transform: capitalize;
-    font-size: 2.6rem;
-    font-weight: bold;
-    color:  map-get($map: $colors, $key:color1);
+        .imagenes-logo{
+            position: relative;
 
-    @include flex-center;
-    flex-wrap: wrap;
-    padding: 0.6em;
-    margin-top: 4rem;
-    text-shadow: 3px 2px 3px black;
+            .logo-img{
+                width: 120px;
+                transition: all 0.6s;
+                position: absolute;
+                top: -50px;
+                left: -50px;
+                z-index: 2;
+            }
 
-}
-.cuadrito{
-    @include flex-center;
-    flex-wrap: wrap;
-    padding: 2em;
-    margin-bottom: 15px;
-}
-.cuadrito img{
-    width: 500px;
-    border-radius: 10px;
-    transition: all 0.6s;
-}
-.cuadrito img:hover{
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: all 0.6s;
-    box-shadow: 4px 2px 7px black;
-}
-.cuadrito p{
-    font-family: 'Poppins';
-    color:  map-get($map: $colors, $key:color1);
-    font-size: 1rem;
-    display: flex;
-    width: 40%;
-    padding: 2em;
-    margin-top: 1em;
-    text-shadow: 3px 2px 3px black;
-}
+            img{
+                width: 400px;
+                border-radius: 10px;
+                transition: all 0.6s;
+            }
+            .somos:hover{
+                cursor: pointer;
+                transform: scale(1.05);
+                transition: all 0.6s;
+                box-shadow: 4px 2px 7px black;
+            }
+            .logo-img:hover{
+                cursor: pointer;
+                transform: scale(1.2);
+                transition: all 0.6s;
+            }
+        }
 
-.videito-fs{
-    text-align: center;
-    margin-bottom: 20px;
-}
-.videito-fs h3{
-    font-family: 'Poppins';
-    color:  map-get($map: $colors, $key:color1);
-    text-transform: capitalize;
-    padding: 10px;
-    text-shadow: 3px 2px 3px black;
-}
-
-.sec-where{
-    display: inline-block;
-    background-image: url(./img/Bol-frutos-secos_1609049356_143524403_667x375.jpg);
-    height: 110vh;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.flex-where{
-    display: flex;
-    align-items: center;
-    margin-top: 6em;
-    margin-bottom: 8em;
-}
-
-.where{
-    @include flex-center;
-    flex-direction: column;
-    margin-left: 3em;
-}
-
-
-.where iframe{
-    height: 50em;
-    width: 40em;
-    padding: 20px;
-}
-
-.donde h3,
-.where h3{
-    color:  map-get($map: $colors, $key:color1);
-    font-family: 'Poppins';
-    text-transform: uppercase;
-    font-size: 2.5rem;
-    padding: 20px;
-    text-shadow: 3px 2px 3px black;
-}
-
-.donde{
-    display: flex;
-    flex-direction: column;
-    color:  map-get($map: $colors, $key:color1);
-    margin-left: 3em;
-}
-
-.donde p{
-    font-family: 'Poppins';
-    width: 90%;
-    padding: 20px;
-    text-shadow: 3px 2px 3px black;
+        p{
+            font-family: 'Poppins';
+            color:  map-get($map: $colors, $key:color1);
+            font-size: 1rem;
+            text-align: justify;
+            width: 400px;
+            margin: 50px;
+            text-shadow: 3px 2px 3px black;
+        }
+    }
+    .videito-fs{
+        text-align: center;
+        h3{
+            font-family: 'Poppins';
+            color:  map-get($map: $colors, $key:color1);
+            text-transform: capitalize;
+            text-shadow: 3px 2px 3px black;
+        }
+    }
 }
 
 .contacto-form{
     background-image: url(./img/Frutos-Secos-El-Rincón.jpg);
-    height: 100vh;
+    height: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     font-family: 'Poppins';
-}
-.formulario{
-    text-align: center;
-    display: inline-block;
-    width: 500px;
-    border-radius: 20px;  
-    padding: 25px;
-    background-color: #fbfbfb; 
-    border: none;
-    margin-top: 20em;
-    margin-bottom: 20em;
-    margin-left: 5em;
+
+    .pasos{
+        color: white;
+        text-align: center;
+        @include flex-center;
+        flex-direction: column;
+        text-shadow: 3px 2px 3px black;
+
+        h2{
+            font-size: 3rem; 
+            margin-top: 2em;
+        }
+
+        .listita{
+            margin-bottom: 20px;
+            list-style-type:upper-roman;
+            li{
+                margin-bottom: 1.5em;
+                font-size: 0.90rem;
+            }
+        }
+    }
+
+    .flex-form{
+        @include flex-center;
+        padding-bottom: 2em;
+
+        .formulario{
+            text-align: center;
+            width: 460px;
+            border-radius: 20px;  
+            padding: 25px;
+            background-color: #fbfbfb; 
+            border: none;
+    
+            textarea{
+                background-color: #fbfbfb; 
+                width: 300px; 
+                height: 150px; 
+                border-radius: 10px;  
+                border-style: solid; 
+                border-width: 1px; 
+                border-color: map-get($map: $colors, $key:color3);
+                margin-top: 10px;  
+                padding-left: 10px;
+                margin-bottom: 20px; 
+                padding-top: 15px; 
+            }
+            
+            label{
+                display: block; 
+                float: center;  
+            }
+            
+            button{
+                height: 45px; 
+                padding-left: 5px;
+                padding-right: 5px;   
+                margin-bottom: 20px; 
+                margin-top: 10px;   
+                text-transform: uppercase;
+                background-color: map-get($map: $colors, $key:color3);
+                border-style: none; 
+                border-radius: 10px;  
+                width: 350px;   
+                cursor: pointer;
+            }
+            button p{
+                color: #fff; 
+            }
+        }
+    }
+
 }
 
-textarea{
-    background-color: #fbfbfb; 
-    width: 405px; 
-    height: 150px; 
-    border-radius: 10px;  
-    border-style: solid; 
-    border-width: 1px; 
-    border-color: rgb(50, 41, 108);
-    margin-top: 10px;  
-    padding-left: 10px;
-    margin-bottom: 20px; 
-    padding-top: 15px; 
-}
+.sec-where{
+    background-image: url(./img/Bol-frutos-secos_1609049356_143524403_667x375.jpg);
+    height: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-label{
-    display: block; 
-    float: center;  
-}
+    .flex-where{
+        @include flex-center;
+        flex-wrap: wrap;
+        padding-top: 6em;
+        padding-bottom: 2em;
 
-button{
-    height: 45px; 
-    padding-left: 5px;
-    padding-right: 5px;   
-    margin-bottom: 20px; 
-    margin-top: 10px;   
-    text-transform: uppercase;
-    background-color: rgb(50, 41, 108);
-    border-style: none; 
-    border-radius: 10px;  
-    width: 420px;   
-    cursor: pointer;
-}
-button p{
-    color: #fff; 
-}
+        .where{
+            @include flex-center;
+            flex-direction: column;
 
-.pasos-flex{
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-}
+            iframe{
+                height: 40em;
+                width: 30em;
+                padding: 20px;
+            }
 
-.pasos{
-    color: white;
-    margin-left: 12em;
-    text-shadow: 3px 2px 3px black;
-}
+            h3{
+                color:  map-get($map: $colors, $key:color1);
+                font-family: 'Poppins';
+                text-transform: uppercase;
+                font-size: 2.5rem;
+                padding: 10px;
+                text-shadow: 3px 2px 3px black;
+            }
+        }
 
-.listita{
-    margin-bottom: 20px;
-    list-style-type:upper-roman;
-}
+        .donde{
+            text-align: center;
+            @include flex-center;
+            flex-direction: column;
+            color:  map-get($map: $colors, $key:color1);
 
-.listita li{
-    margin-bottom: 3em;
-    width: 80%;
+            h3{
+                color:  map-get($map: $colors, $key:color1);
+                font-family: 'Poppins';
+                text-transform: uppercase;
+                font-size: 2.5rem;
+                padding: 10px;
+                text-shadow: 3px 2px 3px black;
+            }
+
+            p{
+                font-family: 'Poppins';
+                padding: 20px;
+                text-shadow: 3px 2px 3px black;
+            }
+
+            iframe{
+                width: 30em;
+                height: 15em;
+                
+            }
+        }
+    }
 }
 
 footer{
@@ -454,22 +432,22 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: sticky;
 
     img{
         width: 70px;
         vertical-align: middle;
-        margin-right: 20px;
+        margin-right: 10px;
     }
     p{
         font-family: 'Poppins';
         font-size: 0.8em;
-        padding: 5px;
         display: inline-block;
         margin-right: 20px;
     }
     i{
         font-size: 2rem;
-        color: rgb(50, 41, 108);
+        color: map-get($map: $colors, $key:color3);
         letter-spacing: 15px;
         vertical-align: middle;
         transition: all 0.2s;
@@ -485,14 +463,108 @@ footer{
 .subir{
     height: 45px;
     width: 45px;
-    background-color:  map-get($map: $colors, $key:color1);
+    background-color:  black;
     border: none;
-    color: rgb(50, 41, 108);
+    color: map-get($map: $colors, $key:color1 );
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
     text-align: center;
-    line-height: 50px;
+    line-height: 45px;
     border-radius: 50%;
     box-shadow: 2px 2px 10px #333;
+}
+
+.open-nav{
+    transform: translateX(0%);
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .menu{
+        display:none;
+    }
+
+    header{
+        font-family: 'Poppins';
+        padding: 0.5em;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        padding: 25px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        a{
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-right: 1em;  
+            text-shadow: 3px 2px 3px black;
+            @include flex-center;
+    
+            img{
+                width: 50px;
+                height: auto;
+            }
+        }
+    
+        nav{
+            transform: translate(0);
+            position: unset;
+            display: flex;
+            width: auto;
+            height: auto;
+            background: none;
+            @include flex-center;
+
+            svg.close{
+                display: none;
+            }
+            ul{
+                display: flex;
+                margin: 0;
+                list-style-type: none;
+    
+                li a{
+                    text-transform: lowercase;
+                    font-weight: bold;
+                    color:  map-get($map: $colors, $key:color1);
+                    font-size: 1.4rem;
+                    text-shadow: 3px 2px 3px black;
+                }
+            }
+        }
+
+        .delica:hover,
+        li a:hover{
+        color: map-get($map: $colors, $key:color2);
+        transition: color 0.3s;
+        }
+    }  
+
+    .pasos{
+        color: white;
+        text-align: center;
+        @include flex-center;
+        flex-direction: column;
+        text-shadow: 3px 2px 3px black;
+
+        h2{
+            font-size: 3rem; 
+            margin-top: 2em;
+        }
+
+        .listita{
+            margin-bottom: 20px;
+            list-style-type:upper-roman;
+            li{
+                margin-bottom: 1.5em;
+                font-size: 1.5rem;
+            }
+        }
+    }
 }

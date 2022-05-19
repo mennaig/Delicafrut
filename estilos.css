@@ -18,7 +18,6 @@ a {
 
 header {
   font-family: 'Poppins';
-  padding: 0.5em;
   position: absolute;
   top: 0;
   right: 0;
@@ -33,13 +32,19 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 20px;
+  z-index: 999;
 }
 
-header a {
-  font-size: 1.8rem;
-  font-weight: bold;
-  padding: 1em;
+header svg {
+  width: 2.3em;
   margin-right: 2em;
+  cursor: pointer;
+}
+
+header .delica {
+  font-size: 2rem;
+  font-weight: bold;
   text-shadow: 3px 2px 3px black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,14 +55,38 @@ header a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
 }
 
-header a img {
+header .delica img {
   width: 50px;
   height: auto;
 }
 
+header nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: #6a56e6;
+  height: 100vh;
+  width: 40%;
+  z-index: 999;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+
 header nav ul {
+  list-style-type: none;
+  display: block;
+  margin-top: 10em;
+}
+
+header nav ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,18 +96,30 @@ header nav ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  list-style-type: none;
+  padding: 20px;
 }
 
 header nav ul li a {
-  text-transform: lowercase;
+  color: #fbfce9;
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 1.4rem;
-  text-shadow: 3px 2px 3px black;
+  padding-top: 0.75em 2em;
 }
 
-header a:hover,
+header nav .close {
+  float: right;
+  margin: 1em;
+  width: 2.5em;
+}
+
 header li a:hover {
+  color: #32296c;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+header .delica:hover {
   color: #6a56e6;
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
@@ -88,7 +129,7 @@ header li a:hover {
   background-image: url(./img/368.jpg);
   height: 100vh;
   background-attachment: fixed;
-  background-position: center;
+  background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -121,7 +162,7 @@ header li a:hover {
 
 .frutos-secos div p {
   color: #fbfce9;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-bottom: 0.5em;
 }
 
@@ -141,84 +182,19 @@ header li a:hover {
 
 .frutos-secos div a:hover {
   height: 60px;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .frutos-secos div ul i:hover {
   font-size: 3rem;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  cursor: pointer;
-}
-
-.productos-1 {
-  padding: 0.5em;
-  margin-bottom: 0;
-  background-image: url(./img/todos-productos.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100%;
-  font-size: 2rem;
-  font-family: 'Poppins';
-  text-transform: uppercase;
-  text-align: center;
-  text-shadow: 3px 2px 3px black;
-}
-
-.productos-1 .flex-productos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.productos-1 .flex-productos .nueces {
-  color: #fbfce9;
-  text-transform: none;
-  display: inline-block;
-  margin: 1.8em;
-  margin-top: 3em;
-}
-
-.productos-1 .flex-productos .nueces h3 {
-  font-size: 1.8rem;
-}
-
-.productos-1 .flex-productos .nueces img {
-  border-radius: 50%;
-  padding: 10px;
-  text-align: center;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
-}
-
-.productos-1 .flex-productos .nueces p {
-  font-size: 0.8rem;
-  padding: 10px;
-  vertical-align: middle;
-}
-
-.productos-1 .flex-productos .nueces img:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-transition: all 0.6s;
-  transition: all 0.6s;
-  -webkit-box-shadow: 5px 2px 7px black;
-          box-shadow: 5px 2px 7px black;
+  color: #6a56e6;
   cursor: pointer;
 }
 
 .productos {
-  padding: 0.5em;
   margin-bottom: 0;
   background-image: url(./img/todos-productos.jpg);
   height: 100%;
@@ -233,13 +209,7 @@ header li a:hover {
   text-shadow: 3px 2px 3px black;
 }
 
-.prod {
-  color: #fbfce9;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.nueces {
+.productos .nueces {
   color: #fbfce9;
   text-transform: none;
   width: 280px;
@@ -249,11 +219,11 @@ header li a:hover {
   margin-top: 3em;
 }
 
-.nueces h3 {
-  font-size: 1.8rem;
+.productos .nueces h3 {
+  font-size: 1.5rem;
 }
 
-.nueces img {
+.productos .nueces img {
   border-radius: 50%;
   padding: 10px;
   text-align: center;
@@ -263,7 +233,7 @@ header li a:hover {
   transition: all 0.7s;
 }
 
-.nueces img:hover {
+.productos .nueces img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: all 0.6s;
@@ -273,27 +243,20 @@ header li a:hover {
   cursor: pointer;
 }
 
-.nueces p {
+.productos .nueces p {
   font-size: 0.8rem;
-  padding: 10px;
   vertical-align: middle;
 }
 
 .nosotros {
-  display: inline-block;
   background-image: url(./img/1366_2000.jpeg);
-  height: 130vh;
+  height: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.nosotros h2 {
-  font-family: 'Poppins';
-  text-transform: capitalize;
-  font-size: 2.6rem;
-  font-weight: bold;
-  color: #fbfce9;
+.nosotros .cuadrito {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,35 +268,32 @@ header li a:hover {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0.6em;
-  margin-top: 4rem;
-  text-shadow: 3px 2px 3px black;
+  padding-top: 7.5em;
+  padding-bottom: 3em;
 }
 
-.cuadrito {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 2em;
-  margin-bottom: 15px;
+.nosotros .cuadrito .imagenes-logo {
+  position: relative;
 }
 
-.cuadrito img {
-  width: 500px;
+.nosotros .cuadrito .imagenes-logo .logo-img {
+  width: 120px;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  z-index: 2;
+}
+
+.nosotros .cuadrito .imagenes-logo img {
+  width: 400px;
   border-radius: 10px;
   -webkit-transition: all 0.6s;
   transition: all 0.6s;
 }
 
-.cuadrito img:hover {
+.nosotros .cuadrito .imagenes-logo .somos:hover {
   cursor: pointer;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
@@ -343,53 +303,47 @@ header li a:hover {
           box-shadow: 4px 2px 7px black;
 }
 
-.cuadrito p {
+.nosotros .cuadrito .imagenes-logo .logo-img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+
+.nosotros .cuadrito p {
   font-family: 'Poppins';
   color: #fbfce9;
   font-size: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 40%;
-  padding: 2em;
-  margin-top: 1em;
+  text-align: justify;
+  width: 400px;
+  margin: 50px;
   text-shadow: 3px 2px 3px black;
 }
 
-.videito-fs {
+.nosotros .videito-fs {
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.videito-fs h3 {
+.nosotros .videito-fs h3 {
   font-family: 'Poppins';
   color: #fbfce9;
   text-transform: capitalize;
-  padding: 10px;
   text-shadow: 3px 2px 3px black;
 }
 
-.sec-where {
-  display: inline-block;
-  background-image: url(./img/Bol-frutos-secos_1609049356_143524403_667x375.jpg);
-  height: 110vh;
+.contacto-form {
+  background-image: url(./img/Frutos-Secos-El-Rincón.jpg);
+  height: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Poppins';
 }
 
-.flex-where {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 6em;
-  margin-bottom: 8em;
-}
-
-.where {
+.contacto-form .pasos {
+  color: white;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -403,78 +357,49 @@ header li a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-left: 3em;
-}
-
-.where iframe {
-  height: 50em;
-  width: 40em;
-  padding: 20px;
-}
-
-.donde h3,
-.where h3 {
-  color: #fbfce9;
-  font-family: 'Poppins';
-  text-transform: uppercase;
-  font-size: 2.5rem;
-  padding: 20px;
   text-shadow: 3px 2px 3px black;
 }
 
-.donde {
+.contacto-form .pasos h2 {
+  font-size: 3rem;
+  margin-top: 2em;
+}
+
+.contacto-form .pasos .listita {
+  margin-bottom: 20px;
+  list-style-type: upper-roman;
+}
+
+.contacto-form .pasos .listita li {
+  margin-bottom: 1.5em;
+  font-size: 0.90rem;
+}
+
+.contacto-form .flex-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #fbfce9;
-  margin-left: 3em;
-}
-
-.donde p {
-  font-family: 'Poppins';
-  width: 90%;
-  padding: 20px;
-  text-shadow: 3px 2px 3px black;
-}
-
-.contacto-form {
-  background-image: url(./img/Frutos-Secos-El-Rincón.jpg);
-  height: 100vh;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-family: 'Poppins';
+  padding-bottom: 2em;
 }
 
-.formulario {
+.contacto-form .flex-form .formulario {
   text-align: center;
-  display: inline-block;
-  width: 500px;
+  width: 460px;
   border-radius: 20px;
   padding: 25px;
   background-color: #fbfbfb;
   border: none;
-  margin-top: 20em;
-  margin-bottom: 20em;
-  margin-left: 5em;
 }
 
-textarea {
+.contacto-form .flex-form .formulario textarea {
   background-color: #fbfbfb;
-  width: 405px;
+  width: 300px;
   height: 150px;
   border-radius: 10px;
   border-style: solid;
@@ -486,12 +411,12 @@ textarea {
   padding-top: 15px;
 }
 
-label {
+.contacto-form .flex-form .formulario label {
   display: block;
   float: center;
 }
 
-button {
+.contacto-form .flex-form .formulario button {
   height: 45px;
   padding-left: 5px;
   padding-right: 5px;
@@ -501,41 +426,105 @@ button {
   background-color: #32296c;
   border-style: none;
   border-radius: 10px;
-  width: 420px;
+  width: 350px;
   cursor: pointer;
 }
 
-button p {
+.contacto-form .flex-form .formulario button p {
   color: #fff;
 }
 
-.pasos-flex {
+.sec-where {
+  background-image: url(./img/Bol-frutos-secos_1609049356_143524403_667x375.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sec-where .flex-where {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 6em;
+  padding-bottom: 2em;
+}
+
+.sec-where .flex-where .where {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
 }
 
-.pasos {
-  color: white;
-  margin-left: 12em;
+.sec-where .flex-where .where iframe {
+  height: 40em;
+  width: 30em;
+  padding: 20px;
+}
+
+.sec-where .flex-where .where h3 {
+  color: #fbfce9;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding: 10px;
   text-shadow: 3px 2px 3px black;
 }
 
-.listita {
-  margin-bottom: 20px;
-  list-style-type: upper-roman;
+.sec-where .flex-where .donde {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fbfce9;
 }
 
-.listita li {
-  margin-bottom: 3em;
-  width: 80%;
+.sec-where .flex-where .donde h3 {
+  color: #fbfce9;
+  font-family: 'Poppins';
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  padding: 10px;
+  text-shadow: 3px 2px 3px black;
+}
+
+.sec-where .flex-where .donde p {
+  font-family: 'Poppins';
+  padding: 20px;
+  text-shadow: 3px 2px 3px black;
+}
+
+.sec-where .flex-where .donde iframe {
+  width: 30em;
+  height: 15em;
 }
 
 footer {
@@ -553,18 +542,19 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 footer img {
   width: 70px;
   vertical-align: middle;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 footer p {
   font-family: 'Poppins';
   font-size: 0.8em;
-  padding: 5px;
   display: inline-block;
   margin-right: 20px;
 }
@@ -589,16 +579,135 @@ footer i:hover {
 .subir {
   height: 45px;
   width: 45px;
-  background-color: #fbfce9;
+  background-color: black;
   border: none;
-  color: #32296c;
+  color: #fbfce9;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 10px;
   text-align: center;
-  line-height: 50px;
+  line-height: 45px;
   border-radius: 50%;
   -webkit-box-shadow: 2px 2px 10px #333;
           box-shadow: 2px 2px 10px #333;
+}
+
+.open-nav {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+@media only screen and (min-width: 1200px) {
+  .menu {
+    display: none;
+  }
+  header {
+    font-family: 'Poppins';
+    padding: 0.5em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-right: 1em;
+    text-shadow: 3px 2px 3px black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header a img {
+    width: 50px;
+    height: auto;
+  }
+  header nav {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+    position: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    height: auto;
+    background: none;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header nav svg.close {
+    display: none;
+  }
+  header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+    list-style-type: none;
+  }
+  header nav ul li a {
+    text-transform: lowercase;
+    font-weight: bold;
+    color: #fbfce9;
+    font-size: 1.4rem;
+    text-shadow: 3px 2px 3px black;
+  }
+  header .delica:hover,
+  header li a:hover {
+    color: #6a56e6;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+  .pasos {
+    color: white;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-shadow: 3px 2px 3px black;
+  }
+  .pasos h2 {
+    font-size: 3rem;
+    margin-top: 2em;
+  }
+  .pasos .listita {
+    margin-bottom: 20px;
+    list-style-type: upper-roman;
+  }
+  .pasos .listita li {
+    margin-bottom: 1.5em;
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=estilos.css.map */
