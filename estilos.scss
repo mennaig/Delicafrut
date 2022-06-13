@@ -41,7 +41,7 @@ header{
 
     svg{
         width: 2.3em;
-        margin-right: 2em;
+        margin-right: 1.5em;
         cursor: pointer;
     }
 
@@ -63,7 +63,7 @@ header{
         top: 0;
         background: map-get($map: $colors, $key: color2);
         height: 100vh;
-        width: 40%;
+        width: 50%;
         z-index: 999;
         transform: translateX(100%);
         transition: transform .5s ease-in-out;
@@ -86,7 +86,10 @@ header{
         }
         .close{
             float: right;
-            margin: 1em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin: 2em;
             width: 2.5em;
         }
     }
@@ -183,8 +186,7 @@ header{
         width: 280px;
         height: auto;
         display: inline-block;
-        margin: 1.8em;
-        margin-top: 3em;
+        padding-top: 2em;
     
         h3{
             font-size: 1.5rem;
@@ -224,23 +226,23 @@ header{
     .cuadrito{
         @include flex-center;
         flex-wrap: wrap;
-        padding-top: 7.5em;
+        padding-top: 6em;
         padding-bottom: 3em;
 
         .imagenes-logo{
             position: relative;
 
             .logo-img{
-                width: 120px;
+                width: 50px;
                 transition: all 0.6s;
                 position: absolute;
-                top: -50px;
-                left: -50px;
+                top: -25px;
+                right: -25px;
                 z-index: 2;
             }
 
             img{
-                width: 400px;
+                width: 320px;
                 border-radius: 10px;
                 transition: all 0.6s;
             }
@@ -269,6 +271,8 @@ header{
     }
     .videito-fs{
         text-align: center;
+        padding-bottom: 20px;
+        width: 100%;
         h3{
             font-family: 'Poppins';
             color:  map-get($map: $colors, $key:color1);
@@ -300,10 +304,11 @@ header{
 
         .listita{
             margin-bottom: 20px;
+            width: 70%;
             list-style-type:upper-roman;
             li{
                 margin-bottom: 1.5em;
-                font-size: 0.90rem;
+                font-size: 0.9rem;
             }
         }
     }
@@ -314,7 +319,7 @@ header{
 
         .formulario{
             text-align: center;
-            width: 460px;
+            width: 350px;
             border-radius: 20px;  
             padding: 25px;
             background-color: #fbfbfb; 
@@ -349,7 +354,7 @@ header{
                 background-color: map-get($map: $colors, $key:color3);
                 border-style: none; 
                 border-radius: 10px;  
-                width: 350px;   
+                width: 300px;   
                 cursor: pointer;
             }
             button p{
@@ -378,8 +383,8 @@ header{
             flex-direction: column;
 
             iframe{
-                height: 40em;
-                width: 30em;
+                height: 30em;
+                max-width: 100%;
                 padding: 20px;
             }
 
@@ -387,7 +392,7 @@ header{
                 color:  map-get($map: $colors, $key:color1);
                 font-family: 'Poppins';
                 text-transform: uppercase;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 padding: 10px;
                 text-shadow: 3px 2px 3px black;
             }
@@ -403,21 +408,22 @@ header{
                 color:  map-get($map: $colors, $key:color1);
                 font-family: 'Poppins';
                 text-transform: uppercase;
-                font-size: 2.5rem;
+                font-size: 2rem;
                 padding: 10px;
                 text-shadow: 3px 2px 3px black;
             }
 
             p{
                 font-family: 'Poppins';
-                padding: 20px;
+                width: 70%;
+                padding-bottom: 20px;
+                padding-top: 15px;
                 text-shadow: 3px 2px 3px black;
             }
 
             iframe{
-                width: 30em;
-                height: 15em;
-                
+                width: 18em;
+                height: 8em;
             }
         }
     }
@@ -463,7 +469,7 @@ footer{
 .subir{
     height: 45px;
     width: 45px;
-    background-color:  black;
+    background-color:  map-get($map: $colors, $key:color2);
     border: none;
     color: map-get($map: $colors, $key:color1 );
     position: fixed;
@@ -479,6 +485,35 @@ footer{
     transform: translateX(0%);
 }
 
+@media only screen and (min-width: 768px) {
+    .nosotros{
+        .cuadrito{
+            @include flex-center;
+            flex-wrap: wrap;
+            padding-top: 8em;
+            padding-bottom: 3em;
+    
+            .imagenes-logo{
+                position: relative;
+                img{
+                    width: 450px;
+                    border-radius: 10px;
+                    transition: all 0.6s;
+                }
+            }
+        }
+        .videito-fs{
+            text-align: center;
+            padding-bottom: 50px;
+            h3{
+                font-family: 'Poppins';
+                color:  map-get($map: $colors, $key:color1);
+                text-transform: capitalize;
+                text-shadow: 3px 2px 3px black;
+            }
+        }
+    }
+}
 
 @media only screen and (min-width: 1200px) {
     .menu{
@@ -564,6 +599,61 @@ footer{
             li{
                 margin-bottom: 1.5em;
                 font-size: 1.5rem;
+            }
+        }
+    }
+
+    .nosotros{
+        background-image: url(./img/1366_2000.jpeg);
+        height: 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    
+        .cuadrito{
+            @include flex-center;
+            flex-wrap: wrap;
+            padding-top: 8em;
+            padding-bottom: 3em;
+    
+            .imagenes-logo{
+                position: relative;
+    
+                .logo-img{
+                    width: 100px;
+                    transition: all 0.6s;
+                    position: absolute;
+                    top: -50px;
+                    left: -50px;
+                    z-index: 2;
+                }
+    
+                img{
+                    width: 450px;
+                    border-radius: 10px;
+                    transition: all 0.6s;
+                }
+                .somos:hover{
+                    cursor: pointer;
+                    transform: scale(1.05);
+                    transition: all 0.6s;
+                    box-shadow: 4px 2px 7px black;
+                }
+                .logo-img:hover{
+                    cursor: pointer;
+                    transform: scale(1.2);
+                    transition: all 0.6s;
+                }
+            }
+        }
+        .videito-fs{
+            padding-top: 50px;
+            text-align: center;
+            h3{
+                font-family: 'Poppins';
+                color:  map-get($map: $colors, $key:color1);
+                text-transform: capitalize;
+                text-shadow: 3px 2px 3px black;
             }
         }
     }
