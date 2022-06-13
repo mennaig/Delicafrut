@@ -218,7 +218,10 @@ header .delica:hover {
   width: 280px;
   height: auto;
   display: inline-block;
-  padding-top: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .productos .nueces h3 {
